@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f2ec">
+  <meta name="description" content="網站、技術教學與校園資訊的專案索引。">
+  <meta property="og:title" content="專案與資源索引">
+  <meta property="og:description" content="網站、技術教學與校園資訊的整理入口。">
+  <meta property="og:type" content="website">
+  <title>專案與資源索引</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f3f2ec;
+      --card: #fbfbf8;
+      --ink: #1d2923;
+      --muted: #69756e;
+      --line: #d6d9d1;
+      --green: #214d3d;
+      --lime: #d8f26b;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Noto Serif TC", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    a:focus-visible {
+      outline: 3px solid #85a935;
+      outline-offset: 5px;
+      border-radius: 3px;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 650;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .masthead-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+    }
+
+    .mark-square {
+      width: 10px;
+      height: 10px;
+      background: var(--green);
+      display: inline-block;
+    }
+
+    .masthead-note { letter-spacing: .04em; }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 190px;
+      align-items: end;
+      gap: 40px;
+      padding: clamp(68px, 10vw, 120px) 0 64px;
+    }
+
+    .eyebrow {
+      margin: 0 0 20px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(42px, 7vw, 82px);
+      font-weight: 500;
+      letter-spacing: -.055em;
+      line-height: 1.1;
+    }
+
+    .intro-copy {
+      max-width: 520px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(15px, 1.6vw, 18px);
+      line-height: 1.8;
+    }
+
+    .count {
+      border-left: 1px solid var(--line);
+      padding: 7px 0 7px 24px;
+      align-self: end;
+    }
+
+    .count strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 55px;
+      font-weight: 500;
+      letter-spacing: -.06em;
+      line-height: 1;
+    }
+
+    .count span {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 17px 0;
+      border-top: 1px solid var(--ink);
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: .08em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      padding-bottom: 90px;
+    }
+
+    .project-card {
+      display: flex;
+      min-height: 310px;
+      flex-direction: column;
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: #aeb8ac;
+      box-shadow: 0 12px 28px rgb(29 41 35 / 7%);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .card-number {
+      color: var(--green);
+      font-family: var(--serif);
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    .project-card h3 {
+      margin: 42px 0 13px;
+      font-size: clamp(20px, 2vw, 25px);
+      font-weight: 650;
+      letter-spacing: -.04em;
+      line-height: 1.45;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: auto;
+      padding-top: 30px;
+    }
+
+    .tag {
+      padding: 6px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 650;
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 750;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .project-link svg {
+      width: 15px;
+      height: 15px;
+      transition: transform .18s ease;
+    }
+
+    .project-link:hover svg { transform: translate(2px, -2px); }
+    .project-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 22px 0 34px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .footer p { margin: 0; }
+
+    @media (max-width: 820px) {
+      .project-list { grid-template-columns: 1fr; }
+      .project-card { min-height: 270px; }
+      .project-card h3 { margin-top: 32px; }
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(100% - 32px, 1180px); }
+      .masthead { min-height: 64px; font-size: 9px; }
+      .masthead-note { max-width: 145px; text-align: right; line-height: 1.6; }
+      .intro {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 70px 0 44px;
+      }
+      .eyebrow { margin-bottom: 16px; }
+      .count {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        padding: 16px 0 0;
+      }
+      .count strong { font-size: 32px; }
+      .count span { margin-top: 0; }
+      .section-heading { align-items: flex-start; flex-direction: column; gap: 7px; }
+      .project-card { padding: 21px; }
+      .footer { flex-direction: column; gap: 5px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <div class="masthead-mark"><span class="mark-square" aria-hidden="true"></span><span>Project Index</span></div>
+      <span class="masthead-note">網站・技術教學・校園資訊</span>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Selected projects &amp; resources</p>
+          <h1 id="page-title">專案與資源索引</h1>
+          <p class="intro-copy">依用途整理的網站、操作教學與校園資訊。選擇一個項目，前往對應網站或文件。</p>
+        </div>
+        <div class="count" aria-label="目前收錄三個項目">
+          <strong>03</strong>
+          <span>目前收錄</span>
+        </div>
+      </section>
+
+      <section aria-labelledby="list-title">
+        <div class="section-heading">
+          <h2 id="list-title">索引項目</h2>
+          <p>依內容類型整理，可持續擴充</p>
+        </div>
+
+        <div class="project-list">
+          <article class="project-card">
+            <div class="card-top"><span>社會與行動</span><span class="card-number">01</span></div>
+            <h3>臺大共行</h3>
+            <p>面向臺大學生的社會議題、行動團隊、課程與創新方法資源索引。</p>
+            <div class="card-bottom">
+              <span class="tag">資源平台</span>
+              <a class="project-link" href="https://xuejin-lu.github.io/island-impact-atlas/" target="_blank" rel="noopener noreferrer" aria-label="開啟臺大共行資源平台">
+                開啟網站
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="card-top"><span>活動技術</span><span class="card-number">02</span></div>
+            <h3>Avolites Titan 10 燈控台教學</h3>
+            <p>提供 PA 組使用的燈控台操作教學與現場流程參考。</p>
+            <div class="card-bottom">
+              <span class="tag">操作教學</span>
+              <a class="project-link" href="https://xuejin-lu.github.io/avolites-titan10-guide/" target="_blank" rel="noopener noreferrer" aria-label="開啟 Avolites Titan 10 燈控台教學">
+                開啟教學
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="card-top"><span>校園資訊</span><span class="card-number">03</span></div>
+            <h3>臺大研究生第一宿舍網路管理</h3>
+            <p>宿舍網路管理相關資訊與文件，整理於 Notion。</p>
+            <div class="card-bottom">
+              <span class="tag">Notion 文件</span>
+              <a class="project-link" href="https://app.notion.com/p/Dormitory-Network-3756df56421d807f84d6cd58bb1384c0?source=copy_link" target="_blank" rel="noopener noreferrer" aria-label="開啟臺大研究生第一宿舍網路管理 Notion 文件">
+                開啟文件
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>本頁為公開索引；各項內容由對應網站或文件維護。</p>
+      <p>xuejin-lu.github.io</p>
+    </footer>
+  </div>
+</body>
+</html>
