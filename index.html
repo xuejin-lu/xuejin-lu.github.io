@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f4ee">
-  <meta name="description" content="Xuejin 的專案與資源索引：社創行動地圖、臺大校園議題圖鑑、燈控台教學與宿舍網路管理。">
+  <meta name="description" content="Xuejin 的專案與資源索引：社創行動地圖、臺大校園議題圖鑑、演算法圖解、燈控台教學與宿舍網路管理。">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Projects &amp; Notes — 專案與資源索引">
   <meta property="og:description" content="從校園議題到實用工具，把做過的事整理成可以使用的入口。">
@@ -96,6 +96,13 @@
     .utility-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 100px; }
     .utility { background: #e9ebe4; color: var(--ink); display: grid; grid-template-columns: 134px 1fr; min-height: 246px; border-radius: 12px; overflow: hidden; text-decoration: none; transition: transform .22s ease, box-shadow .22s ease; }
     .utility.dorm { background: #e2e9e8; }
+    .utility.algorithm { grid-column: 1 / -1; grid-template-columns: minmax(155px, .36fr) 1fr; min-height: 242px; background: #dce8db; }
+    .algorithm .utility-art { background: #c2d8c8; min-height: 198px; margin: 15px 0 15px 15px; }
+    .algorithm .utility-art svg { width: min(100%, 270px); height: auto; max-width: 270px; }
+    .algorithm .utility-text { padding: 28px 30px 22px; }
+    .algorithm .utility-text .smallcap { color: #2f6547; }
+    .algorithm h3 { margin-top: 12px; }
+    .algorithm .utility-bottom { margin-top: auto; }
     .utility-art { display: grid; place-items: center; margin: 15px 0 15px 15px; border-radius: 7px; background: #d6dccc; overflow: hidden; }
     .dorm .utility-art { background: #cbdad7; }
     .utility-art svg { width: 100%; height: 100%; max-width: 132px; }
@@ -117,6 +124,8 @@
       .feature { min-height: 540px; }
       .utility { grid-template-columns: 102px 1fr; }
       .utility-text { padding: 23px 18px 19px; }
+      .utility.algorithm { grid-template-columns: minmax(145px, .35fr) 1fr; }
+      .algorithm .utility-text { padding: 24px 20px 18px; }
     }
     @media (max-width: 700px) {
       .wrap { width: min(100% - 36px, 540px); }
@@ -137,6 +146,9 @@
       .utility-section { padding-top: 66px; }
       .utility-grid { margin-bottom: 72px; }
       .utility { min-height: 218px; }
+      .utility.algorithm { grid-column: auto; grid-template-columns: 110px 1fr; min-height: 218px; }
+      .algorithm .utility-art { min-height: 0; margin: 12px 0 12px 12px; }
+      .algorithm .utility-text { padding: 20px 18px 17px; }
     }
     @media (max-width: 380px) {
       .wrap { width: calc(100% - 28px); }
@@ -150,6 +162,8 @@
       .feature-foot { padding-inline: 22px; }
       .utility { grid-template-columns: 92px 1fr; }
       .utility-text { padding: 18px 14px 16px; }
+      .utility.algorithm { grid-template-columns: 92px 1fr; }
+      .algorithm .utility-text { padding: 18px 14px 16px; }
       .utility h3 { margin-top: 10px; font-size: 21px; }
       .utility-art { margin: 12px 0 12px 12px; }
       .footer { flex-direction: column; align-items: start; gap: 9px; }
@@ -172,12 +186,12 @@
         <div>
           <p class="eyebrow">SELECTED WORK / 2026</p>
           <h1 id="page-title">從想法出發，<br><span class="outline">做成可以</span><br>使用的東西。</h1>
-          <p class="hero-copy">從校園議題與社會參與，到實用的技術教學與生活資訊。這裡收集了四個可以直接打開、閱讀與使用的專案。</p>
-          <div class="hero-bottom"><a class="browse" href="#projects">探索專案 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v16m0 0-6-6m6 6 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="hero-hint">04 PROJECTS · ONE PLACE</span></div>
+          <p class="hero-copy">從校園議題與社會參與，到實用的技術教學與生活資訊。這裡收集了五個可以直接打開、閱讀與使用的專案。</p>
+          <div class="hero-bottom"><a class="browse" href="#projects">探索專案 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v16m0 0-6-6m6 6 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="hero-hint">05 PROJECTS · ONE PLACE</span></div>
         </div>
         <div class="poster" aria-hidden="true">
           <div class="poster-head"><span>AN OPEN COLLECTION</span><span>↗</span></div>
-          <div class="poster-number">04</div>
+          <div class="poster-number">05</div>
           <span class="poster-dot"></span>
           <div class="poster-foot"><span>IDEAS<br>IN MOTION</span><span>RESEARCH / MAKE / SHARE<br>PROJECTS &amp; NOTES</span></div>
         </div>
@@ -208,13 +222,30 @@
       <section class="utility-section" aria-labelledby="resources-title">
         <div class="section-header"><div><span class="section-id">02 — RESOURCES</span><h2 class="section-heading" id="resources-title">工具與筆記</h2></div><p class="section-note">為實際需求整理的參考資料</p></div>
         <div class="utility-grid">
+          <a class="utility algorithm" href="https://xuejin-lu.github.io/algorithm-visual-guide/" target="_blank" rel="noopener noreferrer" aria-label="開啟演算法圖解互動學習網站">
+            <div class="utility-art" aria-hidden="true">
+              <svg viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M41 39V138H179" stroke="#426b55" stroke-width="2" stroke-linecap="round"/>
+                <path d="M62 59L107 87L165 49" stroke="#376d53" stroke-width="2.5" stroke-dasharray="5 7"/>
+                <path d="M62 59L92 132L165 49" stroke="#376d53" stroke-width="2.5"/>
+                <circle cx="62" cy="59" r="12" fill="#f5f4ee" stroke="#32644b" stroke-width="2.5"/>
+                <circle cx="107" cy="87" r="12" fill="#32644b"/>
+                <circle cx="165" cy="49" r="12" fill="#f5f4ee" stroke="#32644b" stroke-width="2.5"/>
+                <circle cx="92" cy="132" r="12" fill="#32644b"/>
+                <path d="M59 156h102" stroke="#91ab95" stroke-width="2" stroke-linecap="round"/>
+                <path d="M59 156h58" stroke="#32644b" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="117" cy="156" r="6" fill="#f5f4ee" stroke="#32644b" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="utility-text"><span class="smallcap">03 / INTERACTIVE LEARNING</span><h3>演算法圖解</h3><p>透過可逐步播放的解題推演、狀態視覺化與 C++17 程式碼對照，理解 BFS、動態規劃、滑動視窗等 LeetCode 題目的解題思路。現有 14 篇互動教案。</p><div class="utility-bottom"><span>開啟互動解題網站</span><span class="arrow-round"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
+          </a>
           <a class="utility" href="https://xuejin-lu.github.io/avolites-titan10-guide/" target="_blank" rel="noopener noreferrer">
             <div class="utility-art" aria-hidden="true"><svg viewBox="0 0 132 210" fill="none"><rect x="21" y="27" width="90" height="156" rx="7" stroke="#70806f" stroke-width="1.5"/><path d="M44 46v117M66 46v117M88 46v117" stroke="#8e9e88" stroke-width="2" stroke-linecap="round"/><rect x="34" y="76" width="20" height="32" rx="4" fill="#344f43"/><rect x="56" y="125" width="20" height="32" rx="4" fill="#344f43"/><rect x="78" y="57" width="20" height="32" rx="4" fill="#344f43"/><circle cx="44" cy="163" r="3" fill="#748773"/><circle cx="66" cy="47" r="3" fill="#748773"/><circle cx="88" cy="163" r="3" fill="#748773"/></svg></div>
-            <div class="utility-text"><span class="smallcap">03 / TECH GUIDE</span><h3>Avolites Titan 10<br>燈控台教學</h3><p>PA 組操作教學與現場流程參考。</p><div class="utility-bottom"><span>開啟教學</span><span class="arrow-round"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
+            <div class="utility-text"><span class="smallcap">04 / TECH GUIDE</span><h3>Avolites Titan 10<br>燈控台教學</h3><p>PA 組操作教學與現場流程參考。</p><div class="utility-bottom"><span>開啟教學</span><span class="arrow-round"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
           </a>
           <a class="utility dorm" href="https://app.notion.com/p/Dormitory-Network-3756df56421d807f84d6cd58bb1384c0?source=copy_link" target="_blank" rel="noopener noreferrer">
             <div class="utility-art" aria-hidden="true"><svg viewBox="0 0 132 210" fill="none"><rect x="28" y="123" width="76" height="45" rx="8" stroke="#42635e" stroke-width="2"/><path d="M48 145h36" stroke="#42635e" stroke-width="2"/><circle cx="41" cy="156" r="3" fill="#42635e"/><path d="M40 103a38 38 0 0 1 52 0M49 91a25 25 0 0 1 34 0M59 80a11 11 0 0 1 15 0" stroke="#42635e" stroke-width="3" stroke-linecap="round" transform="translate(0 22)"/><circle cx="66" cy="113" r="4" fill="#42635e"/></svg></div>
-            <div class="utility-text"><span class="smallcap">04 / CAMPUS LIFE</span><h3>臺大研究生第一宿舍<br>網路管理</h3><p>宿舍網路管理相關資訊與文件。</p><div class="utility-bottom"><span>開啟 Notion 文件</span><span class="arrow-round"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
+            <div class="utility-text"><span class="smallcap">05 / CAMPUS LIFE</span><h3>臺大研究生第一宿舍<br>網路管理</h3><p>宿舍網路管理相關資訊與文件。</p><div class="utility-bottom"><span>開啟 Notion 文件</span><span class="arrow-round"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
           </a>
         </div>
       </section>
